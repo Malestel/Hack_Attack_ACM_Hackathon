@@ -1,5 +1,7 @@
+from typing import Optional
 from sqlalchemy.orm import sessionmaker, Query
 from sqlalchemy import MetaData, create_engine
+from sqlalchemy.engine import Engine
 
 class DbApi:
     def __init__(self):
@@ -63,4 +65,66 @@ class DbApi:
 
         return self._make_output(cols, result)
 
+    def create_user(self, 
+                    Name: str, 
+                    Phone_Number: str, 
+                    Language: str, 
+                    Issue: str, 
+                    Issue_Desc: str, 
+                    Availability: int):
+        '''
+        Creates a new user in the database.
+
+        returns the id of the newly created record
+        on fail, returns -1
+        '''
+
+        self._update_tables()
+        table = self.tables['Users']
+
+        record = dict(
+            Name=Name,
+            Phone_Number=Phone_Number,
+            Language=Language,
+            Issue=Issue,
+            Issue_Desc=Issue_Desc,
+            Availability=Availability
+        )
+
+        try:
+            with self.db.begin() as conn:
+                res = conn.execute(table.insert(), record)
+        except:
+            return -1
+
+        return res.inserted_primary_key[-1]
         
+    def create_volunteer(self, 
+                         Name: str, 
+                         Language: str, 
+                         Start_Time: int,
+                         Stop_Time: int):
+        '''
+        Creates a new volunteer in the database.
+
+        returns the id of the newly created record
+        on fail, returns -1
+        '''
+
+        self._update_tables()
+        table = self.tables['Volunteer']
+
+        record = dict(
+            Name=Name,
+            Language=Language,
+            Start_Time=Start_Time,
+            Stop_Time=Stop_Time
+        )
+
+        try:
+            with self.db.begin() as conn:
+                res = conn.execute(table.insert(), record)
+        except:
+            return -1
+
+        return res.inserted_primary_key[-1]
