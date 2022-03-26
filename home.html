@@ -11,6 +11,11 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+        </script>
 
 
         <!-- Responsive navbar-->
@@ -78,8 +83,16 @@
             console.log(sessionStorage.getItem("usertype"));
         }
         
-        document.getElementById("clickClient").addEventListener("click", storeUserType("client"));
-        document.getElementById("clickVolunteer").addEventListener("click", storeUserType("volunteer"));
+        /*document.getElementById("clickClient").addEventListener("click", storeUserType("client"));
+        document.getElementById("clickVolunteer").addEventListener("click", storeUserType("volunteer"));*/
+        $(document).ready(function(){
+            $("#clickClient").click(function(){
+                storeUserType("client");
+            });
+            $("#clickVolunteer").click(function(){
+                storeUserType("volunteer");
+            });
+        });
 
         </script>   
 
