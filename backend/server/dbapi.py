@@ -53,16 +53,24 @@ class DbApi:
         return self._make_output(cols, result)
 
 
-    def get_appointment(self, name):
+    def get_appointment(self, id):
         self._update_tables()
-        table = self.tables['Appointment']
-        q:Query = self.session.query(table)
-
+        appt_table = self.tables['Appointment']
+        users_table = self.tables['Users']
+       
+        # q: Query = self.session.query(appt_table)
+        # q = q.join(users_table.c.User_ID)
+        cols = ["Appointment_Key",
+                "Start_Time",
+                "End_Time",
+                "Volunteer",
+                "User",
+                "PhoneNumber",
+                "Issue"]
+        query_text = 'Select distinct "Appointment"."Appointment_Key", "Appointment"."Start_Time","Appointment"."End_Time","Volunteers"."Name" as Volunteer_Name,"Users"."Name" as User,"Users"."Phone_Number" as PhoneNumber,"Users"."Issue" from "Appointment","Users", "Volunteers" where "Users"."UserID" = "Appointment"."User_ID" and "Appointment"."Volunteer_ID" =  "Volunteers"."Vol_ID"'
         if id is not None:
-            q = q.filter(table.c.Name == name)
-
-        cols = [col.name for col in table.c]
-        result = q.all()
+            query_text = query_text + ' and "Appointment"."Appointment_Key" = {}'.format(id)
+        result = self.db.execute(query_text)
 
         return self._make_output(cols, result)
 
@@ -136,10 +144,9 @@ class DbApi:
     def create_appointment(self,
                             Start_Time: int,
                             End_Time: int,
-                            Name: str,
-                            Volunteer_Name: str,
-                            Issue: str,
-                            Appointment_Key:int):
+                            User_ID: int,
+                            Volunteer_ID: int,
+                            Issue: str):
 
         self._update_tables()
         table = self.tables['Appointment']
@@ -147,11 +154,11 @@ class DbApi:
         record = dict(
             Start_Time=Start_Time,
             End_Time=End_Time,
-            Name=Name,
-            Volunteer=Name,
-            Issue=Issue,
-            Appointment_Key=Appointment_Key,
+            User_ID=User_ID,
+            Volunteer_ID=Volunteer_ID,
+            Issue=Issue
         )
+
         try:
             with self.db.begin() as conn:
                 res = conn.execute(table.insert(), record)

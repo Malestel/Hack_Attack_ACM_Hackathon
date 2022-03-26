@@ -14,7 +14,7 @@ def new_appointment():
 
     appt = request.json
 
-    appt_id = db.create_apppointment(**appt)
+    appt_id = db.create_appointment(**appt)
 
     ret_payload = dict(
         location=BASE+f'/{appt_id}'
