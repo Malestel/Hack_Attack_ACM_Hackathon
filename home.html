@@ -11,6 +11,23 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .row {
+          display: flex;
+        }
+        
+        /* Create three equal columns that sits next to each other */
+        .column {
+          flex: 33.33%;
+          padding: 5px;
+        }
+        </style>
+
     <body>
         <!-- Responsive navbar-->
         <nav id = "headerBig" class="navbar navbar-expand-lg bg-dark">
@@ -30,6 +47,17 @@
         <!-- Page content-->
         <div class="container">
             <h1>Instant Professionals</h1>
+        
+            </head>
+            
+            <div class="row">
+              <div class="column">
+                <p style="width:70%">How to create side-by-side images with CSS Flexbox:</p>
+              </div>
+              <div class="column">
+                <img src="./assets/PlaceHolder.jpg" alt="PlaceHolder" style="width:90%">
+              </div>
+            </div>
         </div>
     </body>
     <!-- Footer-->
