@@ -1,4 +1,4 @@
-from . import app, GET, PUT, POST, DELETE, db
+from .. import app, GET, PUT, POST, DELETE, db
 from flask import request, abort, jsonify
 
 BASE = '/api/user'
