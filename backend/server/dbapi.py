@@ -22,8 +22,9 @@ class DbApi:
         self.metadata.reflect(self.db)
         self.tables = {table.name: table for table in self.metadata.sorted_tables}
         
+    @staticmethod
     def _make_output(cols, vals):
-        return [dict(zip(cols, val) for val in vals)]
+        return [dict(zip(cols, val)) for val in vals]
 
     def get_volunteer(self, id=None):
         self._update_tables()

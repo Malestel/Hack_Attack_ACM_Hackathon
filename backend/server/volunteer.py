@@ -6,7 +6,7 @@ BASE = '/api/volunteer'
 
 
 @app.route(BASE, methods=GET)
-@app.route(BASE + '/<id>')
+@app.route(BASE + '/<id>', methods=GET)
 def get_Volunteer(id=1):
     # GET Volunteer FROM DATABASE
     VolunteerGrab = DbApi()
@@ -29,8 +29,8 @@ def Get_User(id=None):
 
 
 @app.route(BASE, methods=POST)
-def new_appointment():
-    # CREATE APPOINTMENT IN DATABASE
+def new_volunteer():
+    # CREATE VOLUNTEER IN DATABASE
 
     # if time_conflict:
     #     abort(405, "Time not available")
@@ -43,21 +43,11 @@ def new_appointment():
     return jsonify(ret_payload), 200
 
 
-# @app.route(BASE + '/<id>', methods=PUT)
-# def set_appointments(id):
-#     # Set Appointments
-#
-#     ret_payload = dict(
-#         location=BASE + f'/{id}'
-#     )
-#     return jsonify(ret_payload), 200
-
-
 @app.route(BASE + '/<id>', methods=PUT)
-def update_appointments(id):
-    # UPDATE APPOINTMENT IN DATABASE
+def update_volunteer(id):
+    # UPDATE VOLUNTEER IN DATABASE
     # if id_not_found:
-    #     abort(404, "Appointment not found")
+    #     abort(404, "Volunteer not found")
 
     ret_payload = dict(
         location=BASE + f'/{id}'
@@ -66,9 +56,9 @@ def update_appointments(id):
 
 
 @app.route(BASE + '/<id>', methods=DELETE)
-def delete_appointment(id):
-    # DELETE APPOINTMENT IN DATABASE
+def delete_volunteer(id):
+    # DELETE VOLUNTEER IN DATABASE
     # if id_not_found:
-    #     abort(404, "Appointment not found")
+    #     abort(404, "Volunteer not found")
 
     return
