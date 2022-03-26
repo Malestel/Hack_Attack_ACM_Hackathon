@@ -4,7 +4,7 @@ from flask import request, abort, jsonify
 BASE = '/api/appointment'
 
 @app.route(BASE, methods=GET)
-@app.route(BASE + '/<id>')
+@app.route(BASE + '/<id>', methods=GET)
 def get_appointment(id=None):
     # GET APPOINTMENTS FROM DATABASE
     # if id_not_found:
