@@ -10,6 +10,19 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+/*
+* PERSONAL CSS
+*/
+#headerBig{
+  background-color: #138D75;
+}
+#headerBig, a {
+  color: white !important;
+}
+/*
+* PREMADE CSS
+*/
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -8197,27 +8210,27 @@ fieldset:disabled .btn {
 
 .bg-danger {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity));
 }
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
 }
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #138D75;
 }
 
 .bg-black {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity));
 }
 
 .bg-white {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity));
 }
 
 .bg-body {
