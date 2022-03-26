@@ -43,11 +43,7 @@
               <div class="col-md-6">
                   <h2>About Us</h2>
                 <p>It’s not easy living in a foreign country. Between the language barrier and new culture, it can be difficult to get the help you need for important tasks such as taxes, insurance, legal help, or signing documents. Even something as small as signing a field trip form. Here at DocLingo we connect volunteer translators to you. During each session with a volunteer, they will walk you through the contents of the document in your native language.  If you need even more specialized help such as legal or medical translations that are available by appointment.</p>
-                <h3>Sign In</h3>
-                <!--Volunteer Button-->
-                 <button id="clickVolunteer" class="btn btn-primary btn-lg btn-block">Volunteer</button>
-                 <!--Client Button-->
-                     <button id="clickClient" class="btn btn-primary btn-lg btn-block">Client</button>
+
             </div>
               <div class="col-md-6">
                 <img src="./assets/womanWorkingOnComputer.jpg" alt="PlaceHolder" style="width:90%">
@@ -75,25 +71,5 @@
             </div>
         </div>
     </body>
-
-    <script>
-        function storeUserType(x){
-            sessionStorage.setItem("usertype:", x);
-            console.log(x);
-            console.log(sessionStorage.getItem("usertype"));
-        }
-        
-        /*document.getElementById("clickClient").addEventListener("click", storeUserType("client"));
-        document.getElementById("clickVolunteer").addEventListener("click", storeUserType("volunteer"));*/
-        $(document).ready(function(){
-            $("#clickClient").click(function(){
-                storeUserType("client");
-            });
-            $("#clickVolunteer").click(function(){
-                storeUserType("volunteer");
-            });
-        });
-
-        </script>   
 
 </html>

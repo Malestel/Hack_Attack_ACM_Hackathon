@@ -36,7 +36,7 @@
                             <h4>Login</h4>
                         </div>
                         <div class="card-body">
-                            <form action="login.php" method="post">
+                            <form action="login.html" method="post">
                                 <div class="form-group">
                                     <label for="phonenumber">Phone Number</label>
                                     <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter Phone Number" required>
@@ -47,7 +47,8 @@
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                                 </div>
                                 <br>    
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" id="client" class="btn btn-primary">Login as Client</button>
+                                <button type="submit" id="" class="btn btn-primary">Login as Volunteer</button>
                             </form>
                         </div>
                     </div>
@@ -56,4 +57,63 @@
 
         </div>
     </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+function login() {
+    $("#submit").click(function (e) {
+        var validate = Validate();
+            $.ajax({
+                type: "GET",
+                url: "http://10.4.155.76:5000/api/user",
+                success: function (result, status, xhr) {
+                    var table = $("<table><tr><th>Success Post</th></tr>");
+  
+                    table.append("<tr><td>Name:</td><td>" + result["Name"] + "</td></tr>");
+                    table.append("<tr><td>Phone:</td><td>" + result["Phone_Number"] + "</td></tr>");
+  
+                    $("#message").html(table);
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+        
+    /*
+    var userL = [{"Name": document.getElementById("password").value,
+                "Phone_Numer": document.getElementById("phonenumber").value}]
+    $("#submit").click(function (e) {
+        var validate = Validate();
+            $.ajax({
+                type: "POST",
+                url: "http://10.4.155.76:5000/api/user",
+                datakey: "Phone_Number",
+                dataType: JSON.stringify({userL}),
+                success: function (result, status, xhr) {
+                    var table = $("<table><tr><th>Success Post</th></tr>");
+  
+                    table.append("<tr><td>Name:</td><td>" + result["Name"] + "</td></tr>");
+                    table.append("<tr><td>Phone:</td><td>" + result["Phone_Number"] + "</td></tr>");
+  
+                    $("#message").html(table);
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+    });*/
+  
+    $(document).ajaxStart(function () {
+        $("img").show();
+    });
+  
+    $(document).ajaxStop(function () {
+        $("img").hide();
+    });
+  
+    function Validate() {
+        var errorMessage = "";
+        return errorMessage;
+    }
+})};
+</script>
 </html>
