@@ -17,6 +17,6 @@
 # Appointments
 * **Start_Time** timestamp with time zone
 * **End_Time** timestamp with time zone
-* **Name** text
-* **Volunteer_Name** text
+* **UserID** integer (user key)
+* **Vol_ID** integer (volunteer key)
 * **Issue** text
