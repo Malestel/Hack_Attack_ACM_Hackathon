@@ -114,7 +114,7 @@ class DbApi:
         '''
 
         self._update_tables()
-        table = self.tables['Volunteer']
+        table = self.tables['Volunteers']
 
         record = dict(
             Name=Name,
@@ -126,7 +126,8 @@ class DbApi:
         try:
             with self.db.begin() as conn:
                 res = conn.execute(table.insert(), record)
-        except:
+        except Exception as e:
+            print(e)
             return -1
 
         return res.inserted_primary_key[-1]
