@@ -7,7 +7,7 @@ BASE = '/api/volunteer'
 
 @app.route(BASE, methods=GET)
 @app.route(BASE + '/<id>', methods=GET)
-def get_Volunteer(id=1):
+def get_Volunteer(id=None):
     # GET Volunteer FROM DATABASE
     VolunteerGrab = DbApi()
     volunteers = VolunteerGrab.get_volunteer()
@@ -15,7 +15,6 @@ def get_Volunteer(id=1):
     #     abort(404, "Appointment not found")
 
     return jsonify(volunteers), 200
-
 
 def Get_User(id=None):
     # GET Volunteer FROM DATABASE
@@ -34,7 +33,6 @@ def new_volunteer():
 
     # if time_conflict:
     #     abort(405, "Time not available")
-
     appt = request.json
 
     ret_payload = dict(

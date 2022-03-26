@@ -129,3 +129,40 @@ class DbApi:
             return -1
 
         return res.inserted_primary_key[-1]
+
+
+    def create_apppointment(self,
+                            Start_Time: int,
+                            End_Time: int,
+                            Name: str,
+                            Volunteer_Name: str,
+                            Issue: str):
+
+        self._update_tables()
+        table = self.tables['Appointment']
+
+        record = dict(
+            Start_Time=Start_Time,
+            End_Time=End_Time,
+            Name=Name,
+            Volunteer=Name,
+            Issue=Issue
+        )
+        try:
+            with self.db.begin() as conn:
+                res = conn.execute(table.insert(), record)
+        except:
+            return -1
+
+        return res.inserted_primary_key[-1]
+
+
+# def update_appointment(self,
+#                        Start_Time: int,
+#                        End_Time: int,
+#                        Name: str,
+#                        Volunteer_Name: str,
+#                        Issue: str):
+#
+
+
