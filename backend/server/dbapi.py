@@ -39,13 +39,13 @@ class DbApi:
 
         return self._make_output(cols, result)
 
-    def get_user(self, name=None):
+    def get_user(self, id=None):
         self._update_tables()
         table = self.tables['Users']
         q:Query = self.session.query(table)
 
         if id is not None:
-            q = q.filter(table.c.Name == name)
+            q = q.filter(table.c.UserID == id)
         
         cols = [col.name for col in table.c]
         result = q.all()
@@ -89,7 +89,8 @@ class DbApi:
             Language=Language,
             Issue=Issue,
             Issue_Desc=Issue_Desc,
-            Availability=Availability
+            Availability=Availability,
+            Appointment=None
         )
 
         try:

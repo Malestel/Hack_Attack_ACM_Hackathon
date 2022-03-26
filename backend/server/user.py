@@ -20,10 +20,11 @@ def add_user():
         location=BASE+f'/{user_id}'
     )
 
-    if user_id > 0:
-        return jsonify(ret_payload), 200
-    else:
-        abort(500, "Error creating user")
+    return jsonify(ret_payload), 200
+    # if user_id > 0:
+    #     return jsonify(ret_payload), 200
+    # else:
+    #     abort(500, "Error creating user")
         
 
 @app.route(BASE + '/<id>', methods=PUT)
