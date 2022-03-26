@@ -12,10 +12,6 @@
     }
 ]
 ```
-**Response** (404)
-```
-Appointment not found
-```
 -----------
 *HTTP GET* `/api/appointment`
 
@@ -68,15 +64,6 @@ Appointment Not Found
 ## Users
 *HTTP GET* `/api/user/{id}`
 
-# Users
-* **Name** - text
-* **Phone_Number** - text
-* **Language** - text
-* **Issue** - text
-* **Issue_Desc** - text
-* **Availability** - timestamp with timezone
-* **UserID** - PKEY integer
-**Response** (200)
 ```json
 [
     {
@@ -90,7 +77,7 @@ Appointment Not Found
 ]
 ```
 -----------
-*HTTP GET* `/api/appointment`
+*HTTP GET* `/api/user`
 
 **Response** (200)
 ```json
@@ -115,7 +102,7 @@ Appointment Not Found
     ]
 ```
 -----------
-*HTTP POST* `/api/appointment`
+*HTTP POST* `/api/user`
 
 **Request**
 ```json
@@ -126,6 +113,70 @@ Appointment Not Found
     "Issue": string,
     "Issue_Desc": string,
     "Availability": timestamp-tz
+}
+```
+**Response** (200)
+```json
+{
+    "location":"/api/user/{id}"
+}
+```
+-----------
+*HTTP DELETE* `/api/user/{id}`
+
+*Response* (200)
+```
+"OK"
+```
+*Response* (404)
+```
+User Not Found
+```
+-----------
+## Volunteers
+*HTTP GET* `/api/user/{id}`
+
+```json
+[
+    {
+        "Name": string,
+        "Language":string,
+        "Start_Time": timestamp-tz,
+        "Stop_Time": timestamp-tz
+    }
+]
+```
+-----------
+*HTTP GET* `/api/appointment`
+
+**Response** (200)
+```json
+    [
+        {
+            "Name": string,
+            "Language":string,
+            "Start_Time": timestamp-tz,
+            "Stop_Time": timestamp-tz
+        },
+        {
+            "Name": string,
+            "Language":string,
+            "Start_Time": timestamp-tz,
+            "Stop_Time": timestamp-tz
+        },
+        ...
+    ]
+```
+-----------
+*HTTP POST* `/api/appointment`
+
+**Request**
+```json
+{
+    "Name": string,
+    "Language":string,
+    "Start_Time": timestamp-tz,
+    "Stop_Time": timestamp-tz
 }
 ```
 **Response** (200)
