@@ -1,32 +1,40 @@
-from . import app, GET, PUT, POST, DELETE, db
-from flask import request, abort, jsonify
+from flask_login import UserMixin
+from . import db 
 
-BASE = '/api/user'
+class User(UserMixin):
+    @classmethod
+    def get(cls, user_id):
 
-@app.route(BASE, methods=GET)
-@app.route(BASE + '/<id>', methods=GET)
-def get_user(id=None):
-    users = db.get_user(id)
-    return jsonify(users)
-
-@app.route(BASE, methods=POST)
-def add_user():
-
-    user = request.json
-
-    user_id = db.create_user(**user)
-
-    ret_payload = dict(
-        location=BASE+f'/{user_id}'
-    )
-
-    return jsonify(ret_payload), 200
-    # if user_id > 0:
-    #     return jsonify(ret_payload), 200
-    # else:
-    #     abort(500, "Error creating user")
+        obj = cls()
         
+        try:
+            user = db.get_web_user(user_id)
+        except KeyError:
+            return None
 
-@app.route(BASE + '/<id>', methods=PUT)
-def modify_user():
-    pass
+        obj.Name = user['Name']
+        obj.id = user['Phone_Number'].encode()
+        obj.language = user['Language']
+        obj.user_type=user['user_type']
+
+        return obj
+    
+    def __getitem__(self, key):
+        if key == "Name":
+            return self.Name
+
+        if key == "Phone_Number":
+            return self.id
+        
+        if key == "Language":
+            return self.language
+
+        if key == "user_type":
+            return self.user_type
+
+        raise KeyError(f"Unknown key {key}")
+
+    def keys(self):
+        return ("Name", "Phone_Number", "Language", "user_type")
+
+

@@ -1,5 +1,5 @@
 from flask import request, abort, jsonify
-from . import app, GET, PUT, POST, DELETE, db
+from .. import app, GET, PUT, POST, DELETE, db
 
 BASE = '/api/volunteer'
 

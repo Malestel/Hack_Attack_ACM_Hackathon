@@ -1,6 +1,6 @@
-from typing import Optional
+from typing import Dict, Optional
 from sqlalchemy.orm import sessionmaker, Query
-from sqlalchemy import MetaData, create_engine
+from sqlalchemy import MetaData, create_engine, Table
 from sqlalchemy.engine import Engine
 
 class DbApi:
@@ -16,7 +16,7 @@ class DbApi:
         self.metadata = MetaData()
         self.metadata.reflect(self.db)
         self.session = sessionmaker(bind=self.db)()
-        self.tables = {table.name: table for table in self.metadata.sorted_tables}
+        self.tables: Dict[str, Table] = {table.name: table for table in self.metadata.sorted_tables}
 
     def _update_tables(self):
         self.metadata.reflect(self.db)
@@ -25,6 +25,34 @@ class DbApi:
     @staticmethod
     def _make_output(cols, vals):
         return [dict(zip(cols, val)) for val in vals]
+
+    def get_web_user(self, phone_num):
+
+        table = self.tables["Users"]
+        q:Query = self.session.query(table)
+        q = q.filter(table.c.Phone_Number == phone_num)
+        if q.count() == 1:
+            user = q.all()[0]
+            user_type = "Users"
+        else: 
+            if q.count == 0:
+                table = self.tables["Volunteers"]
+                q = self.session.query(table)
+                q = q.filter(table.c.Phone_Number == phone_num)
+                if q.count() == 1:
+                    user = q.all()[0]
+                    user_type="Volunteers"
+                else:
+                    raise KeyError("User Not Found") 
+            else:
+                raise KeyError("User Not Found")
+        
+        cols = [col.name for col in table.c]
+        dict_usr = dict(zip(cols, user))
+        return_val = {key: dict_usr[key] for key in ["Name", "Phone_Number", "Language"]}
+        return_val['user_type'] = user_type
+
+        return return_val
 
     def get_volunteer(self, id=None):
         self._update_tables()
@@ -112,6 +140,7 @@ class DbApi:
     def create_volunteer(self, 
                          Name: str, 
                          Language: str, 
+                         Phone_Number: str,
                          Start_Time: int,
                          Stop_Time: int):
         '''
@@ -127,6 +156,7 @@ class DbApi:
         record = dict(
             Name=Name,
             Language=Language,
+            Phone_Number=Phone_Number,
             Start_Time=Start_Time,
             Stop_Time=Stop_Time
         )
