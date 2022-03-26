@@ -30,3 +30,17 @@ def add_user():
 @app.route(BASE + '/<id>', methods=PUT)
 def modify_user():
     pass
+
+
+@app.route(BASE + '/<id>', methods=PUT)
+def update_User(Name,Start_Time,End_Time,Langauge,User_Id):
+    # UPDATE User IN DATABASE
+    # if id_not_found:
+    #     abort(404, "Appointment not found")
+    user = request.json
+    id = db.update_appointment(User_Id,**user)
+
+    ret_payload = dict(
+        location=BASE + f'/{id}'
+    )
+    return jsonify(ret_payload), 200
