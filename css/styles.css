@@ -14,22 +14,15 @@
 /*
 * PERSONAL CSS
 */
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
 #headerBig{
   background-color: #138D75;
+  margin-bottom: 5%;
 }
-#headerBig, a {
+#headerBig a {
   color: white !important;
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -44,6 +37,7 @@ footer {
   width: 100%;
   border: 1px solid #ddd;
   font-size: 18px;
+  margin-bottom: 5%;
 }
 
 #myTable th, #myTable td {
