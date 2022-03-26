@@ -10,21 +10,11 @@ BASE = '/api/volunteer'
 def get_Volunteer(id=None):
     # GET Volunteer FROM DATABASE
     VolunteerGrab = DbApi()
-    volunteers = VolunteerGrab.get_volunteer()
+    volunteers = VolunteerGrab.get_volunteer(id)
     # if id_not_found:
     #     abort(404, "Appointment not found")
 
     return jsonify(volunteers), 200
-
-def Get_User(id=None):
-    # GET Volunteer FROM DATABASE
-    Users = DbApi()
-    MyUsers = Users.get_user()
-
-    # if id_not_found:
-    #     abort(404, "Appointment not found")
-    user = MyUsers
-    return jsonify(get_Volunteer), 200
 
 
 @app.route(BASE, methods=POST)
