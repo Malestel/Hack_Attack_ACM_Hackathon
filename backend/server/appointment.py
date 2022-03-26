@@ -1,4 +1,4 @@
-from . import app, GET, PUT, POST, DELETE
+from . import app, GET, PUT, POST, DELETE, db
 from flask import request, abort, jsonify
 
 BASE = '/api/appointment'
@@ -6,25 +6,24 @@ BASE = '/api/appointment'
 @app.route(BASE, methods=GET)
 @app.route(BASE + '/<id>', methods=GET)
 def get_appointment(id=None):
-    # GET APPOINTMENTS FROM DATABASE
-    # if id_not_found:
-    #     abort(404, "Appointment not found")
-    appointments = []
+    appointments = db.get_appointment(id)
     return jsonify(appointments), 200
 
 @app.route(BASE, methods=POST)
 def new_appointment():
-    # CREATE APPOINTMENT IN DATABASE
-
-    # if time_conflict:
-    #     abort(405, "Time not available")
 
     appt = request.json
 
+    appt_id = db.create_apppointment(**appt)
+
     ret_payload = dict(
-        location=BASE+f'/{id}'
+        location=BASE+f'/{appt_id}'
     )
-    return jsonify(ret_payload), 200
+
+    if appt_id > 0:
+        return jsonify(ret_payload), 200
+    else:
+        abort(500, "Error creating appointment")
 
 @app.route(BASE + '/<id>', methods=PUT)
 def update_appointment(id):

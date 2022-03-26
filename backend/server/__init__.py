@@ -1,4 +1,7 @@
 from flask import Flask
+from .dbapi import DbApi
+
+db = DbApi()
 
 GET, PUT, POST, DELETE = ('GET',), ('PUT',), ('POST',), ('DELETE',)
 

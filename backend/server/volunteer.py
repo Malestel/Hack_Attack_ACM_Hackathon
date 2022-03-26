@@ -1,6 +1,5 @@
 from flask import request, abort, jsonify
-from . import app, GET, PUT, POST, DELETE
-from .dbapi import DbApi
+from . import app, GET, PUT, POST, DELETE, db
 
 BASE = '/api/volunteer'
 
@@ -9,10 +8,7 @@ BASE = '/api/volunteer'
 @app.route(BASE + '/<id>', methods=GET)
 def get_Volunteer(id=None):
     # GET Volunteer FROM DATABASE
-    VolunteerGrab = DbApi()
-    volunteers = VolunteerGrab.get_volunteer(id)
-    # if id_not_found:
-    #     abort(404, "Appointment not found")
+    volunteers = db.get_volunteer(id)
 
     return jsonify(volunteers), 200
 
