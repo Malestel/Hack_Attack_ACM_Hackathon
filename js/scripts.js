@@ -5,3 +5,11 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+function storeUserType(x){
+    sessionStorage.setItem("usertype:", x);
+    console.log(x);
+    console.log(sessionStorage.getItem("usertype"));
+}
+
+document.getElementById('clickClient').addEventListener('change', storeUserType("client"), false);
+document.getElementById('clickVolunteer').addEventListener('change', storeUserType("volunteer"), false);
