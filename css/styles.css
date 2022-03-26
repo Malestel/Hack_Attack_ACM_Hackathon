@@ -14,8 +14,21 @@
 /*
 * PERSONAL CSS
 */
-#headerBig{
-  background-color: #138D75;
+
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  border: 2px solid red;
+}
+
+#headerBig {
+  background-color: #138d75;
   margin-bottom: 5%;
 }
 #headerBig a {
@@ -40,7 +53,8 @@
   margin-bottom: 5%;
 }
 
-#myTable th, #myTable td {
+#myTable th,
+#myTable td {
   text-align: left;
   padding: 12px;
 }
@@ -49,7 +63,8 @@
   border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header, #myTable tr:hover {
+#myTable tr.header,
+#myTable tr:hover {
   background-color: #f1f1f1;
 }
 /*
@@ -8252,7 +8267,7 @@ fieldset:disabled .btn {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: #138D75;
+  background-color: #138d75;
 }
 
 .bg-black {
