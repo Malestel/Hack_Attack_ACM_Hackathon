@@ -81,7 +81,7 @@ class DbApi:
         return self._make_output(cols, result)
 
 
-    def get_appointment(self, id):
+    def get_appointment(self, id=None):
         self._update_tables()
         appt_table = self.tables['Appointment']
         users_table = self.tables['Users']

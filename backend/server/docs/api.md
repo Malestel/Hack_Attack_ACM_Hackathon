@@ -6,9 +6,13 @@
 ```json
 [
     {
-        "insert":"stuff",
-        "here":"for",
-        "good":"return"
+        "Appointment_Key": integer,
+        "End_Time": timestamp-tz,
+        "Issue": string,
+        "PhoneNumber": string,
+        "Start_Time": timestamp-tz,
+        "User": string,
+        "Volunteer": string
     }
 ]
 ```
@@ -19,14 +23,22 @@
 ```json
     [
         {
-            "insert":"stuff",
-            "here":"for",
-            "good":"return"
+            "Appointment_Key": integer,
+            "End_Time": timestamp-tz,
+            "Issue": string,
+            "PhoneNumber": string,
+            "Start_Time": timestamp-tz,
+            "User": string,
+            "Volunteer": string
         },
         {
-            "insert":"stuff",
-            "here":"for",
-            "good":"return"
+            "Appointment_Key": integer,
+            "End_Time": timestamp-tz,
+            "Issue": string,
+            "PhoneNumber": string,
+            "Start_Time": timestamp-tz,
+            "User": string,
+            "Volunteer": string
         },
         ...
     ]
