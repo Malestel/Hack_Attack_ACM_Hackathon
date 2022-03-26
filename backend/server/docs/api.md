@@ -147,7 +147,7 @@ User Not Found
 ]
 ```
 -----------
-*HTTP GET* `/api/appointment`
+*HTTP GET* `/api/volunteer`
 
 **Response** (200)
 ```json
@@ -168,7 +168,7 @@ User Not Found
     ]
 ```
 -----------
-*HTTP POST* `/api/appointment`
+*HTTP POST* `/api/volunteer`
 
 **Request**
 ```json
@@ -182,11 +182,11 @@ User Not Found
 **Response** (200)
 ```json
 {
-    "location":"/api/appointment/{id}"
+    "location":"/api/volunteer/{id}"
 }
 ```
 -----------
-*HTTP DELETE* `/api/appointment/{id}`
+*HTTP DELETE* `/api/volunteer/{id}`
 
 *Response* (200)
 ```
@@ -194,5 +194,5 @@ User Not Found
 ```
 *Response* (404)
 ```
-Appointment Not Found
+Volunteer Not Found
 ```
