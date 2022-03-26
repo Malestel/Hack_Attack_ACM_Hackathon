@@ -133,12 +133,41 @@ class DbApi:
         return res.inserted_primary_key[-1]
 
 
-    def create_apppointment(self,
+    def create_appointment(self,
                             Start_Time: int,
                             End_Time: int,
                             Name: str,
                             Volunteer_Name: str,
-                            Issue: str):
+                            Issue: str,
+                            Appointment_Key:int):
+
+        self._update_tables()
+        table = self.tables['Appointment']
+
+        record = dict(
+            Start_Time=Start_Time,
+            End_Time=End_Time,
+            Name=Name,
+            Volunteer=Name,
+            Issue=Issue,
+            Appointment_Key=Appointment_Key,
+        )
+        try:
+            with self.db.begin() as conn:
+                res = conn.execute(table.insert(), record)
+        except:
+            return -1
+
+        return res.inserted_primary_key[-1]
+
+
+
+    def update_appointment(self,
+                           Start_Time: int,
+                           End_Time: int,
+                           Name: str,
+                           Volunteer_Name: str,
+                           Issue: str):
 
         self._update_tables()
         table = self.tables['Appointment']
@@ -152,19 +181,61 @@ class DbApi:
         )
         try:
             with self.db.begin() as conn:
-                res = conn.execute(table.insert(), record)
+                res = conn.execute(table.update(), record)
+        except:
+            return -1
+
+        return res.inserted_primary_key[-1]
+
+        return res.inserted_primary_key[-1]
+
+
+
+    def update_volunteer(self,
+                           Name: str,
+                           Start_Time: int,
+                           Endtime: str,
+                           Language: str,
+                           UserID: int
+                          ):
+
+        self._update_tables()
+        table = self.tables['Volunteer']
+
+        record = dict(
+                Name=Name,
+                Start_Time=Start_Time,
+                End_time=Endtime,
+                Language=Language,
+        )
+        try:
+            with self.db.begin() as conn:
+                res = conn.execute(table.update(), record)
         except:
             return -1
 
         return res.inserted_primary_key[-1]
 
 
-# def update_appointment(self,
-#                        Start_Time: int,
-#                        End_Time: int,
-#                        Name: str,
-#                        Volunteer_Name: str,
-#                        Issue: str):
-#
+    def update_User(self,
+                        Name: str,
+                        Start_Time: int,
+                        Endtime: str,
+                        Language: str,
+                        UserID: int
+                          ):
 
+        self._update_tables()
+        table = self.tables['Users']
 
+        record = dict(
+                Name=Name,
+                Start_Time=Start_Time,
+                End_time=Endtime,
+                Language=Language,
+        )
+        try:
+            with self.db.begin() as conn:
+                res = conn.execute(table.update(), record)
+        except:
+            return -1
