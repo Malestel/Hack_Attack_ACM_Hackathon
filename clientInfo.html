@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Blog Home - Start Bootstrap Template</title>
+        <title>Session Information</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -29,73 +29,80 @@
         </nav>
         <!-- Page content-->
         <div class="container">
-            <h1>Past Sessions</h1>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
+            <h1>Past Sessions Information</h1> 
+            <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search by name, session, or more information.." title="Type in a name"> 
             <table id="myTable">
-            <tr class="header">
-                <th style="width:60%;">Name</th>
-                <th style="width:40%;">Country</th>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Berglunds snabbkop</td>
-                <td>Sweden</td>
-            </tr>
-            <tr>
-                <td>Island Trading</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>Koniglich Essen</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Canada</td>
-            </tr>
-            <tr>
-                <td>Magazzini Alimentari Riuniti</td>
-                <td>Italy</td>
-            </tr>
-            <tr>
-                <td>North/South</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>Paris specialites</td>
-                <td>France</td>
-            </tr>
+                <tr class="header">
+                    <th scope="col">Name</th>
+                    <th scope="col">Session</th>
+                    <th scope="col">More Information</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td><a>8-Mar-2021 18:34:05</a></td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique malesuada molestie. Aenean venenatis sit amet magna et blandit. Mauris eu imperdiet justo. Cras nec fringilla nulla. Nullam venenatis commodo ipsum quis laoreet. Donec lectus augue, lobortis lacinia lacinia vitae, porta in elit. Sed rutrum nisl nec sapien viverra, luctus suscipit felis congue. Proin mattis tempor elementum. Mauris dignissim tempus sapien.</td>
+                </tr>
+                <tr>
+                    <td>Berglunds snabbkop</td>
+                    <td><a>8-Mar-2021 12:54:05</a></td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique malesuada molestie. Aenean venenatis sit amet magna et blandit. Mauris eu imperdiet justo. Cras nec fringilla nulla. Nullam venenatis commodo ipsum quis laoreet. Donec lectus augue, lobortis lacinia lacinia vitae, porta in elit. Sed rutrum nisl nec sapien viverra, luctus suscipit felis congue. Proin mattis tempor elementum. Mauris dignissim tempus sapien.</td>
+                </tr>
+                <tr>
+                    <td>Island Trading</td>
+                    <td><a>7-Mar-2021 13:24:05</a></td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique malesuada molestie. Aenean venenatis sit amet magna et blandit. Mauris eu imperdiet justo. Cras nec fringilla nulla. Nullam venenatis commodo ipsum quis laoreet. Donec lectus augue, lobortis lacinia lacinia vitae, porta in elit. Sed rutrum nisl nec sapien viverra, luctus suscipit felis congue. Proin mattis tempor elementum. Mauris dignissim tempus sapien.</td>
+                </tr>
+                <tr>
+                    <td>Koniglich Essen</td>
+                    <td><a>7-Mar-2021 8:34:05</a></td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique malesuada molestie. Aenean venenatis sit amet magna et blandit. </td>
+                </tr>
+                <tr>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td><a>7-Mar-2021 8:00:05</a></td>
+                    <td>Cras nec fringilla nulla. Nullam venenatis commodo ipsum quis laoreet. Donec lectus augue, lobortis lacinia lacinia vitae, porta in elit.</td>
+                </tr>
+                <tr>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td><a>6-Mar-2021 20:34:05</a></td>
+                    <td>Cras nec fringilla nulla. Nullam venenatis commodo ipsum quis laoreet. Donec lectus augue, lobortis lacinia lacinia vitae, porta in elit.</td>
+                </tr>
+                <tr>
+                    <td>North/South</td>
+                    <td><a>6-Mar-2021 14:15:56</a></td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                </tr>
+                <tr>
+                    <td>Paris specialites</td>
+                    <td><a>6-Mar-2021 13:13:24</a></td>
+                    <td>Proin mattis tempor elementum. Mauris dignissim tempus sapien.</td>
+                </tr>
             </table>
 
             <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
+                function filterTable(event) {
+                    var filter = event.target.value.toUpperCase();
+                    var rows = document.querySelector("#myTable tbody").rows;
+                    
+                    for (var i = 1; i < rows.length; i++) {
+                        var firstCol = rows[i].cells[0].textContent.toUpperCase();
+                        var secondCol = rows[i].cells[1].textContent.toUpperCase();
+                        var thirdCol = rows[i].cells[2].textContent.toUpperCase();
+                        if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1) {
+                            rows[i].style.display = "";
+                        } else {
+                            rows[i].style.display = "none";
+                        }      
+                    }
                 }
-                }       
-            }
-            }
+
+                document.querySelector('#myInput').addEventListener('keyup', filterTable, false);
             </script>
 
         </div>
     </body>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ACM Hackathon 2022</p></div>
     </footer>
 </html>
