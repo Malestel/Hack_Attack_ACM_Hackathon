@@ -36,7 +36,7 @@
                             <h4>Login</h4>
                         </div>
                         <div class="card-body">
-                            <form action="login.php" method="post">
+                            <form onSubmit="login()" method="post">
                                 <div class="form-group">
                                     <label for="phonenumber">Phone Number</label>
                                     <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter Phone Number" required>
@@ -47,13 +47,13 @@
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                                 </div>
                                 <br>    
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" id="client" class="btn btn-primary">Login as Client</button>
+                                <button type="submit" id="" class="btn btn-primary">Login as Volunteer</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>

@@ -24,7 +24,7 @@ class User(UserMixin):
             return self.Name
 
         if key == "Phone_Number":
-            return self.id
+            return self.id.decode()
         
         if key == "Language":
             return self.language

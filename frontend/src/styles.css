@@ -29,7 +29,6 @@
 
 #headerBig {
   background-color: #138d75;
-  margin-bottom: 5%;
 }
 #headerBig a {
   color: white !important;
@@ -45,28 +44,6 @@
   margin-bottom: 12px;
 }
 
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-  margin-bottom: 5%;
-}
-
-#myTable th,
-#myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header,
-#myTable tr:hover {
-  background-color: #f1f1f1;
-}
 /*
 * PREMADE CSS
 */
@@ -11714,3 +11691,6 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
