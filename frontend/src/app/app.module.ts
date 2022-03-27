@@ -9,6 +9,7 @@ import { ClientInfoComponent } from './client-info/client-info.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { PreVideoComponent } from './pre-video/pre-video.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PreVideoComponent } from './pre-video/pre-video.component';
     HomeComponent,
     ChatComponent,
     PreVideoComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
