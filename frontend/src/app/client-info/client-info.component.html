@@ -1,1 +1,60 @@
-<p>client-info works!</p>
+<!-- Responsive navbar-->
+<nav id = "headerBig" class="navbar navbar-expand-lg bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#!">DocLingo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Past Sessions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Account</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page content-->
+<div class="container">
+    <h1>Past Sessions Information</h1> 
+    <mat-table [dataSource]="result">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let user"> {{result.User}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Start_Time">
+            <th mat-header-cell *matHeaderCellDef>Start Time</th>
+            <td mat-cell *matCellDef="let user"> {{result.Start_Time}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </mat-table>
+    <!--
+    <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search by name, session, or more information.." title="Type in a name"> 
+    <table id="myTable">
+        <tr class="header">
+            <th scope="col">Name</th>
+            <th scope="col">Session</th>
+            <th scope="col">More Information</th>
+        </tr>
+    </table>
+
+    <script>
+        function filterTable(event) {
+            var filter = event.target.value.toUpperCase();
+            var rows = document.querySelector("#myTable tbody").rows;
+            
+            for (var i = 1; i < rows.length; i++) {
+                var firstCol = rows[i].cells[0].textContent.toUpperCase();
+                var secondCol = rows[i].cells[1].textContent.toUpperCase();
+                var thirdCol = rows[i].cells[2].textContent.toUpperCase();
+                if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }      
+            }
+        }
+
+        document.querySelector('#myInput').addEventListener('keyup', filterTable, false);
+    </script>
+-->
+</div>
