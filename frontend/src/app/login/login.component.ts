@@ -57,6 +57,11 @@ export class LoginComponent implements OnInit {
 
   private url = environment.api_url;
 
+  phoneNum: string = '';
+  name: string = '';
+  userType: string = '';
+  language: string = '';
+
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -65,16 +70,23 @@ export class LoginComponent implements OnInit {
     this.httpClient.get(this.url  + '/api/user').subscribe({
       next: response => {
         console.log(response)
+        
       }
     })
   }
 
   onLogin(){
-    this.httpClient.post(this.url + '/login', {
+    this.httpClient.post<{
+      Phone_Number: string,
+      Name: string,
+      user_type: string,
+      Language: string
+    }>(this.url + '/login', {
       Phone_Number: this.profileForm.value.phonenumber
     }).subscribe({
-      next: response => {
-        console.log(response)
+      next: (response) => {
+        this.userType = response['user_type'];
+        console.log( this.userType )
       }
     })
   }
