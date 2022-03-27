@@ -27,7 +27,6 @@ class DbApi:
         return [dict(zip(cols, val)) for val in vals]
 
     def get_web_user(self, phone_num):
-
         table = self.tables["Users"]
         q:Query = self.session.query(table)
         q = q.filter(table.c.Phone_Number == phone_num)
@@ -35,7 +34,7 @@ class DbApi:
             user = q.all()[0]
             user_type = "Users"
         else: 
-            if q.count == 0:
+            if q.count() == 0:
                 table = self.tables["Volunteers"]
                 q = self.session.query(table)
                 q = q.filter(table.c.Phone_Number == phone_num)
