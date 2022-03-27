@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PreVideoComponent } from './pre-video.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {AppComponent} from "../app.component";
-
 describe('PreVideoComponent', () => {
   let component: PreVideoComponent;
   let fixture: ComponentFixture<PreVideoComponent>;
