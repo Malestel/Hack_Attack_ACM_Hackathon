@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '/login', component: LoginComponent},
   {path: '/client-info', component: ClientInfoComponent},
   {path: '/chat', component: ChatComponent},
-  {path: '/pre-video', component: PreVideoComponent}
+  {path: './pre-video', component: PreVideoComponent}
 ];
 
 @NgModule({
