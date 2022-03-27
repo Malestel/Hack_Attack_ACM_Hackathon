@@ -13,7 +13,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 @NgModule({
 
   declarations: [
