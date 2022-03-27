@@ -16,6 +16,7 @@ import { ChatComponent } from './chat/chat.component';
 import { PreVideoComponent } from './pre-video/pre-video.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CallinfoDialogComponent } from './callinfo-dialog/callinfo-dialog.component';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -32,11 +33,12 @@ import { CallinfoDialogComponent } from './callinfo-dialog/callinfo-dialog.compo
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
     ClipboardModule,
     MatDialogModule,
     MatSnackBarModule,
     MatFormFieldModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

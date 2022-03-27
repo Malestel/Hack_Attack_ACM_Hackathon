@@ -6,11 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-info.component.css']
 })
 export class ClientInfoComponent implements OnInit {
-
+  displayedColumns: string[] = ['table-name', 'table-phone', 'table-issue', 'demo-volunteer', 'demo-startT', 'demo-endT'];
+  dataResult: any;
   constructor() { }
-  columnsToDisplay = ['userName', 'age'];
-
-
   ngOnInit(): void {
   }
 
@@ -18,7 +16,7 @@ export class ClientInfoComponent implements OnInit {
 function getStuff(this: any) {
   this.httpClient.get(this.url  + '/api/appointment').subscribe({
     next: (response: any) => {
-      this.result = response;
+      this.dataResult = response;
       console.log(response)
     }
   })
