@@ -1,3 +1,8 @@
 FROM nginx
 
+RUN mkdir /ssl
+
 COPY * ./usr/share/nginx/html/
+COPY /usr/srwight/.ssl/merged.crt /ssl/www.eclectic-sheep.com.crt
+COPY /usr/srwight/.ssl/private.key /ssl/www.eclectic-sheep.com.key
+COPY nginx.conf /etc/nginx/
