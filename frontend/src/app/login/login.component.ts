@@ -99,12 +99,12 @@ export class LoginComponent implements OnInit {
         console.log( this.userType )
         if(this.userType == 'Users'){
           console.log('user');
-          this.router.navigate(['/pre-vid']);
+          this.router.navigate(['/pre-video']);
           //return  .redirect('/UserHomePage');
         }
         else if(this.userType == 'Volunteers'){
           console.log('volunteer');
-          this.router.navigate(['/pre-vid']);
+          this.router.navigate(['/pre-video']);
         }
         else{
           console.log('error')
