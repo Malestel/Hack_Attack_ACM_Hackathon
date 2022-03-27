@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://10.4.155.76:5000'
+  api_url: 'http://eclectic-sheep.com:5000'
 };
 
 /*
