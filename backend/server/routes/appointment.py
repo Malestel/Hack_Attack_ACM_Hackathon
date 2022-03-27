@@ -26,10 +26,12 @@ def new_appointment():
         abort(500, "Error creating appointment")
 
 @app.route(BASE + '/<id>', methods=PUT)
-def update_appointment(id):
+def update_appointment():
     # UPDATE APPOINTMENT IN DATABASE
-    # if id_not_found:
+    # if id_not_found:Users
     #     abort(404, "Appointment not found")
+    appt = request.json
+    id = db.update_appointment(**appt)
 
     ret_payload = dict(
         location=BASE+f'/{id}'

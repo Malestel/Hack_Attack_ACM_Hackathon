@@ -242,7 +242,7 @@ class DbApi:
         record = dict(
                 Name=Name,
                 Start_Time=Start_Time,
-                End_time=Endtime,
+                End_time=End_time,
                 Language=Language,
         )
         try:
@@ -257,7 +257,7 @@ class DbApi:
     def update_User(self,
                         Name: str,
                         Start_Time: int,
-                        Endtime: str,
+                        End_time: str,
                         Language: str,
                         UserID: int
                           ):
