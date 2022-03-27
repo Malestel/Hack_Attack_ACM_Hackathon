@@ -12,6 +12,7 @@ import { PreVideoComponent } from './pre-video/pre-video.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

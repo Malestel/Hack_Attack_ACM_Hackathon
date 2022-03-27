@@ -4,20 +4,7 @@
 
 
    
-        <!-- Responsive navbar-->
-        <nav id = "headerBig" class="navbar navbar-expand-lg bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#!">DocLingo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Past Sessions</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Account</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
         <!-- Page content-->
         <div class="container">
 <!--Login input field-->
@@ -28,19 +15,19 @@
                             <h4>Login</h4>
                         </div>
                         <div class="card-body">
-                            <form onSubmit="login()" method="post">
+                            <form [formGroup]="profileForm" method="post">
                                 <div class="form-group">
                                     <label for="phonenumber">Phone Number</label>
-                                    <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter Phone Number" required>
+                                    <input formControlName ="phonenumber" type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter Phone Number" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                                    <input formControlName ="lastName" type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                                 </div>
                                 <br>    
-                                <button type="submit" id="client" class="btn btn-primary">Login as Client</button>
-                                <button type="submit" id="" class="btn btn-primary">Login as Volunteer</button>
+                                <button type="button" (click)="onLogin()" id="client" class="btn btn-primary">Login as Client</button>
+                                <button type="button" (click)="onLogin()" id="" class="btn btn-primary">Login as Volunteer</button>
                             </form>
                         </div>
                     </div>
