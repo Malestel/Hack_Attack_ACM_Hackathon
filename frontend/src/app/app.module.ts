@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { HomeComponent } from './home/home.component';
+import { ChatComponent } from './chat/chat.component';
+import { PreVideoComponent } from './pre-video/pre-video.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ClientInfoComponent,
-    HomeComponent
+    HomeComponent,
+    ChatComponent,
+    PreVideoComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
