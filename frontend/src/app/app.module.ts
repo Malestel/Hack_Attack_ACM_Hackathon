@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { PreVideoComponent } from './pre-video/pre-video.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ChatComponent } from './chat/chat.component';
     ClientInfoComponent,
     HomeComponent,
     ChatComponent,
+    PreVideoComponent,
   ],
   imports: [
     BrowserModule,
