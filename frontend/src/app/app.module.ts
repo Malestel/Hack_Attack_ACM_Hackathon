@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { HomeComponent } from './home/home.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ClientInfoComponent,
-    HomeComponent
+    HomeComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
