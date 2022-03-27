@@ -14,7 +14,7 @@ def login_route():
 
     if user:
         login_user(user)
-        return jsonify(user)
+        return jsonify(dict(user))
     else:
         abort(401, "Invalid phone number.")
 
