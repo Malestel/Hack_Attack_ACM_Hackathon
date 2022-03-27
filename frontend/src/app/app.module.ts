@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { PreVideoComponent } from './pre-video/pre-video.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatTableModule,
     HttpClientModule
   ],
   providers: [],
